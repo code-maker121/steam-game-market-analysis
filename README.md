@@ -63,7 +63,7 @@ Multi-column grouping
 
 # Analysis
 
-1. Data Understanding and Quality Checks
+# 1. Data Understanding and Quality Checks
 I first inspected the table structure and checked the main columns used in the analysis.
 I checked:
 Total number of records
@@ -77,7 +77,7 @@ I also found prices ranging from free games to titles priced close to $1,000. In
 
 
 
-2. Price Segmentation
+# 2. Price Segmentation
 
 I created several price groups to make games at different price levels easier to compare:
 Free
@@ -96,7 +96,7 @@ This view is used throughout the rest of the project.
 
 
 
-3. Price-Tier Performance
+# 3. Price-Tier Performance
 
 I compared price tiers using several types of performance measures:
 Percentage of games reaching 10+, 100+, and 1,000+ peak concurrent users
@@ -110,7 +110,7 @@ Because of this, I also used threshold-based measures such as the percentage of 
 
 For example, the Mid-Tier segment showed stronger player activity than many lower-priced segments, while very high-priced and outlier titles generally showed much lower activity.
 
-4. Playtime and Review Analysis
+# 4. Playtime and Review Analysis
 
 I also compared average playtime and review volume across price tiers.
 
@@ -127,7 +127,7 @@ For reviews, I calculated the percentage of games receiving:
 I also recalculated positive review rates using only games with at least 100 reviews.
 This was useful because games with only a few reviews can have very high or very low ratings that are not very reliable.
 
-5. Price-Bucket Investigation
+# 5. Price-Bucket Investigation
 
 In addition to the broader price tiers, I grouped games into $5 price buckets.
 I compared these buckets using:
@@ -141,7 +141,7 @@ I then checked publishers, developers, and genres to see whether one company or 
 The result suggested that the unusual performance was mainly caused by the mix of titles in the bucket rather than price alone.
 
 
-6. Genre Market Analysis
+# 6. Genre Market Analysis
 The genres column contains arrays, so I used UNNEST() to convert each game's genre list into separate rows.
 I then compared genres using:
 Number of games
@@ -154,7 +154,7 @@ To avoid comparing very small categories, I focused the main analysis on genres 
 
 
 
-7. Genre Opportunity Ranking
+# 7. Genre Opportunity Ranking
 
 I used multiple CTEs and DENSE_RANK() window functions to create a simple genre ranking.
 Each genre was ranked using four dimensions:
@@ -168,7 +168,7 @@ This is only an exploratory ranking rather than a predictive model, but it helpe
 
 
 
-8. Publisher Portfolio Analysis
+# 8. Publisher Portfolio Analysis
 
 I also analyzed publishers as portfolios instead of looking only at individual games.
 For each publisher, I calculated:
@@ -185,7 +185,7 @@ This is a common SQL pattern for finding the top record within each group.
 
 
 
-9. Genre × Price Tier Analysis
+# 9. Genre × Price Tier Analysis
 
 The final part of the project combines genre and price tier.
 I grouped games by both:
